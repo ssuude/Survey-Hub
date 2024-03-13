@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head")  %> 
+</head>
+<body style="background-color:  #e9ecef;">
+    
+    <%- include("../partials/nav")  %> 
+
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mt-3">
+
+                <% if (typeof message != "undefined") { %>
+                    <div class="alert alert-<%= message.class %>">
+                        <%= message.text %> 
+                    </div>
+                <% } %>
+                <br>
+                <div class="card" style="box-shadow: 0px 0px 20px 0px lightskyblue;">
+                    <div class="card-body">
+                        <br>
+                        <h1 class="text-center mb-4" style="color:skyblue">Giriş Yap</h1>
+                        <form method="post">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <br><br>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" id="email" name="email" placeholder=" Email" style="background-color: #f8f9fa;">
+                            </div><br>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Şifre" style="background-color: #f8f9fa;">
+                            </div>
+                            <br><br>
+                            <div class="mb-3 text-center">
+                                <button type="submit" class="btn btn-outline-info btn-block col-md-6 mt-3" style="margin-bottom: 15px;">GİRİŞ YAP</button>
+                            </div>
+                            <div class="mb-3 text-center">
+                                <a href="reset-password" class="btn btn-link" style="color: skyblue;">Parola Sıfırlama</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .btn-outline-info:hover {
+            color: white;
+        }
+    </style>
+</body>
+</html>

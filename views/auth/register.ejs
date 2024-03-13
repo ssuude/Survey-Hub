@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../partials/head") %>
+</head>
+
+<body style="background-color:  #e9ecef;">
+
+    <%- include("../partials/nav") %>
+
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <br><br>
+                <% if (typeof message != "undefined") { %>
+                <div class="alert alert-<%= message.class %>">
+                    <%= message.text %>
+                </div>
+                <% } %>
+                <div class="card" style="box-shadow: 0px 0px 20px 0px lightskyblue;">
+                    <div class="card-body" >
+                        <br>
+                        <h2 class="text-center mb-4" style="color:skyblue">Kayıt Ol!</h2><br>
+                        <form method="post">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Ad Soyad">
+                            </div><br>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                            </div><br>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Şifre">
+                            </div>
+                            <br>
+                            <div class="mb-3 text-center"> 
+                                <button type="submit" class="btn btn-outline-info col-md-6 mt-3">Kaydet</button>
+                            </div>
+                            <br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .btn-outline-info:hover {
+            color: white;
+        }
+    </style>
+</body>
+
+</html>

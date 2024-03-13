@@ -1,0 +1,72 @@
+<nav class="navbar navbar-dark bg-info navbar-expand-lg">
+    <div class="container">
+        <a href="/" class="navbar-brand">Event App</a>
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a href="/blogs" class="nav-link">Etkinlikler</a>
+            </li>
+
+            <% if (isAdmin || isModerator) { %>            
+                
+                <li class="nav-item">
+                    <a href="/admin/blogs" class="nav-link">Etkinlik Düzenle</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/blog/create" class="nav-link">Etkinlik Ekle </a>
+                </li>
+
+            <% } %>
+
+            <% if (isAdmin) { %>
+             
+                <li class="nav-item">
+                    <a href="/admin/categories" class="nav-link">Kategori Düzenle </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/category/create" class="nav-link">Kategori Ekle </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/roles" class="nav-link">Roller</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/users" class="nav-link">Kullanıcılar</a>
+                </li>
+                
+            <% } %>
+
+            <!---->
+            <% if (isGuest) { %>
+             
+                <li class="nav-item">
+                    <a href="/blogs" class="nav-link">Etkinliklerim </a>
+                </li>
+                
+            <% } %>
+           <!---->
+
+        </ul>
+
+        <ul class="navbar-nav ms-auto">
+
+           
+
+            <% if (isAuth) { %>   
+                <li class="nav-item">
+                    <a href="/account/index" class="nav-link"><%= fullname %> </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/account/logout" class="nav-link">Çıkış</a>
+                </li>
+            <% } else { %>
+                <li class="nav-item">
+                    <a href="/account/login" class="nav-link">Giriş</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/account/register" class="nav-link">Kayıt Ol</a>
+                </li>
+            <% } %>               
+            
+
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head")  %> 
+</head>
+<body>
+    
+    <%- include("../partials/nav")  %> 
+
+    <div class="container mt-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <img src="/static/images/<%=blog.resim  %>" class="img-fluid" alt="" style="max-width: 300px; height: auto;">
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="h3 mb-3 text-center"> <%= blog.baslik %> </h1>
+                        <p class="text-center"><%= blog.altbaslik %> </p>
+                    </div>
+                </div><hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <% var tarih = new Date(blog.tarih); %>
+                        <h1 class="h3 mb-3 text-center"> <%= tarih.toLocaleString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' }) %> </h1>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-center"><%- blog.aciklama %> </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center"> <br><br>
+                        <button type="submit" class="btn btn-outline-info col-md-6 mt-3">Katıl</button>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <style>
+        .btn-outline-info:hover {
+            color: white;
+        }
+    </style>
+</body>
+</html>

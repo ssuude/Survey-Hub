@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head")  %> 
+</head>
+<body>
+    
+    <%- include("../partials/nav")  %> 
+
+    <div class="container mt-3">
+        <div class="row justify-content-center"> 
+            <div class="col-md-8 mt-3">
+                
+                        <form method="post">
+                            <h2 class="row justify-content-center" style="color: skyblue;">Yeni Kategori Ekle</h2>
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <br><br>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Ad</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Kategori Adı">
+                            </div>
+                            <br>
+                            <div class="mb-3">
+                                <label for="url" class="form-label">Url</label>
+                                <input type="text" class="form-control" id="url" name="url" placeholder="Kategori Url">
+                            </div>
+                            <br><br>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Kaydet</button>
+                            </div>
+                            <br>
+                        </form>
+            </div>
+        </div>
+    </div>
+       
+</body>
+</html>

@@ -1,0 +1,39 @@
+<div class="list-group">
+    <a href="/blogs" class="list-group-item list-group-item-action"> Tüm Kategoriler  </a>
+    <% categories.forEach(function(category) { %>
+        <a href="/blogs/category/<%= category.url %>" 
+            class="list-group-item list-group-item-action category-item <%= selectedCategory == category.url ? 'active': '' %> "
+            style="transition: background-color 0.3s, border-color 0.3s;">
+            <%= category.name %>  
+        </a>
+    <% }) %> 
+</div>
+
+<style>
+    .list-group-item:hover, .category-item.active {
+        background-color: skyblue;
+        border-color: skyblue;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.category-item').hover(
+            function() {
+                $(this).css({
+                    'background-color': '#d1ecf1',
+                    'border-color': 'skyblue'
+                });
+            },
+            function() {
+                if (!$(this).hasClass('active')) {
+                    $(this).css({
+                        'background-color': '',
+                        'border-color': ''
+                    });
+                }
+            }
+        );
+    });
+</script>
